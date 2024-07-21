@@ -3,22 +3,42 @@ import { useReducer, useState } from 'react'
 import './App.css'
 
 function App() {
-  let initialstate = 5
+
   const reducer = (state, action) => {
-    if (action.type == "Increment") return state + 1
-    else {
-      return state - 1
+    switch (action.type) {
+      case "INCREMENT":
+        return { ...state, count: state.count + action.payload }
+      case "DECREMENT":
+        return { ...state, count: state.count - action.payload }
+      case "TOGGLE":
+        return { ...state, value: action.payload, name: "Doe" }
     }
+  }
+  let initialstate = {
+    count: 0,
+    name: 'John',
+    value: "Not Changed"
   }
 
   const [state, dispatch] = useReducer(reducer, initialstate)
-  console.log(state);
+  const handleinrement = () => {
+    dispatch({ type: "INCREMENT", payload: 5 });
+  };
+  const handledecerement = () => {
+    dispatch({ type: "DECREMENT", payload: 5 });
+  };
+  const toggle = () => {
+    dispatch({ type: "TOGGLE", payload: "Changed" })
+  }
 
   return (
     <>
-      <p>{state}</p>
-      <button onClick={() => dispatch({ type: "Increment" })}>Increment</button>
-      <button onClick={() => dispatch({ type: "Decrement" })}>Decrement</button>
+      <p>{state.name}</p>
+      <p>{state.value}</p>
+      <button onClick={toggle}>Click To Change Value</button>
+      <p>{state.count}</p>
+      <button onClick={handleinrement}>Increment</button>
+      <button onClick={handledecerement}>Decrement</button>
     </>
   )
 }
