@@ -40,3 +40,6 @@ const handleinrement = () => {
 
 // 5. usereducer humlog onclick pe use kar sakteh  
 <button onClick={handleinrement}>Increment</button>
+
+
+// 6. usereducer se humlog multiple state ek sath managae kar sakte h jaisa aapne upar dekha maine ek reducer func banaya usmai he sab define kardiya hu yahe kaam usestate se karenge toh bohot usestate banege 
