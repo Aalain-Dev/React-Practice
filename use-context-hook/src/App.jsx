@@ -1,17 +1,15 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import CreateContext from './createcontext/CreateContext'
+import  CreateContext, { CreatedContext } from './createcontext/CreateContext'
+import { Comp1 } from './assets/Component/Comp1'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
 <>
-<CreateContext>
-<h1>Hello World</h1>
-</CreateContext>
+<Comp1/>
 </>
   )
 }

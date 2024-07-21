@@ -1,11 +1,13 @@
-import { createContext } from "react"
+import { createContext, useState } from "react"
 
 
 export const CreatedContext = createContext()
-
 const CreateContext = ({ children }) => {
+  const [first, setfirst] = useState("this Value is from create context ")
+  // console.log(first);
   return (
-    <CreatedContext.Provider>
+
+    <CreatedContext.Provider value ={{first}}> 
       {children}
     </CreatedContext.Provider>
   )
