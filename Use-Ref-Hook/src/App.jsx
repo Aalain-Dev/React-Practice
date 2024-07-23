@@ -1,44 +1,33 @@
-import { useReducer, useState } from 'react'
-
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "INCREMENT":
-        return { ...state, count: state.count + action.payload }
-      case "DECREMENT":
-        return { ...state, count: state.count - action.payload }
-      case "TOGGLE":
-        return { ...state, value: action.payload, name: "Doe" }
-    }
-  }
-  let initialstate = {
-    count: 0,
-    name: 'John',
-    value: "Not Changed"
-  }
-
-  const [state, dispatch] = useReducer(reducer, initialstate)
-  const handleinrement = () => {
-    dispatch({ type: "INCREMENT", payload: 5 });
-  };
-  const handledecerement = () => {
-    dispatch({ type: "DECREMENT", payload: 5 });
-  };
-  const toggle = () => {
-    dispatch({ type: "TOGGLE", payload: "Changed" })
-  }
+  const [count, setCount] = useState(0)
 
   return (
     <>
-      <p>{state.name}</p>
-      <p>{state.value}</p>
-      <button onClick={toggle}>Click To Change Value</button>
-      <p>{state.count}</p>
-      <button onClick={handleinrement}>Increment</button>
-      <button onClick={handledecerement}>Decrement</button>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </>
   )
 }
