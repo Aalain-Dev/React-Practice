@@ -22,6 +22,7 @@ const handleclick = ()=>{
  <p>{count}</p>
  <button onClick={handleclick}>Click</button>
  <button ref = {green}>Color Change</button>
+ <input type="text" value = {ref} />
  </>
   )
 }
